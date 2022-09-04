@@ -11,8 +11,11 @@ import {
   UserWrapper,
   Icon,
   HighlightCards,
+  Transactions,
+  Title
 } from "./styles";
 import { HighlightCard } from "../../components/HighlightCard";
+import { TransactionCard } from "../../components/TransactionCard";
 
 export function Dashboard() {
   return (
@@ -50,6 +53,15 @@ export function Dashboard() {
             type='total'
           />
         </HighlightCards>
+
+        <Transactions>
+          <Title>
+            Listagem
+          </Title>
+
+          <TransactionCard />
+          
+        </Transactions>
       </Container>
     </>
   );
