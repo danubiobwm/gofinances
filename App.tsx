@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import { ThemeProvider } from "styled-components";
-import AppLoading from "expo-app-loading";
 import {
   useFonts,
   Poppins_400Regular,
@@ -11,7 +10,8 @@ import {
 import theme from "./src/global/styles/theme";
 import { StatusBar } from "expo-status-bar";
 import { Dashboard } from "./src/screens/Dashboard";
-import * as SplashScreen from 'expo-splash-screen';
+import * as SplashScreen from "expo-splash-screen";
+import { SafeAreaView } from "react-native";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,16 +22,22 @@ export default function App() {
     Poppins_700Bold,
   });
 
-  if(!fontsLoaded){
-    return <AppLoading />
-  }
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) return null;
 
   return (
     <>
-      <ThemeProvider theme={theme} >
-        <StatusBar style="auto" />
-        <Dashboard />
-      </ThemeProvider>
+      <SafeAreaView onLayout={onLayoutRootView}>
+        <ThemeProvider theme={theme}>
+          <StatusBar style="auto" />
+          <Dashboard />
+        </ThemeProvider>
+      </SafeAreaView>
     </>
   );
 }

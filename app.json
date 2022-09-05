@@ -6,5 +6,10 @@
     "assetBundlePatterns": [
       "**/*"
     ]
+  },
+  "splash": {
+    "image": "",
+    "resizeMode": "contain",
+    "backgroundColor": "#000000"
   }
 }
