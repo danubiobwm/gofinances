@@ -9,9 +9,11 @@ import {
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
 import theme from "./src/global/styles/theme";
-
 import { StatusBar } from "expo-status-bar";
 import { Dashboard } from "./src/screens/Dashboard";
+import * as SplashScreen from 'expo-splash-screen';
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
