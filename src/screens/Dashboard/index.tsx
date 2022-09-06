@@ -1,109 +1,121 @@
-import React from "react";
-
-import {
-  Container,
+import React from 'react';
+import { 
+  Container, 
   Header,
+  UserWrapper,
   UserInfo,
   Photo,
   User,
-  UserGreeting,
+  UserGretting,
   UserName,
-  UserWrapper,
   Icon,
   HighlightCards,
   Transactions,
   Title,
-  TransactionsList
-} from "./styles";
-import { HighlightCard } from "../../components/HighlightCard";
-import { TransactionCard } from "../../components/TransactionCard";
-import { getBottomSpace } from "react-native-iphone-x-helper";
+  TransactionList
+} from './styles';
+import { HighlightCard } from '../../components/HighlightCard';
+import { TransactionCard, TransactionCardData } from '../../components/TransactionCard';
 
-export function Dashboard() {
-  const data = [
-    {
-    type: 'positive',
+export interface DataListProps extends TransactionCardData {
+  id: string;
+}
+
+const data: DataListProps[] = [
+  {
+    id: '1',
     title: "Desenvolvimento de site",
     amount: "R$ 12.000,00",
+    date: '13/04/2020',
     category: {
       name: "Vendas",
-      icon: "dollar-sign",
+      icon: "dollar-sign"
     },
-    date: "12/04/2022",
+    type: 'positive'
   },
-    {
-    type: 'negative',
-    title: "Lanches",
-    amount: "R$ 200,00",
+  {
+    id: '2',
+    title: "Hamburgueria Pizzy",
+    amount: "R$ 59,00",
+    date: '10/04/2020',
     category: {
-      name: "Lanchonetes",
-      icon: "dollar-sign",
+      name: "Alimentação",
+      icon: "coffee"
     },
-    date: "12/04/2022",
+    type: 'negative'
   },
-    {
-    type: 'negative',
-    title: "Aluguel",
-    amount: "R$ 1.000,00",
+  {
+    id: '3',
+    title: "Aluguel do apartamento",
+    amount: "R$ 1.200,00",
+    date: '27/03/2020',
     category: {
       name: "Casa",
-      icon: "dollar-sign",
+      icon: "home"
     },
-    date: "12/04/2022",
+    type: 'negative'
   },
-];
+  {
+    id: '4',
+    title: "Desenvolvimento de aplicativo",
+    amount: "R$ 15.000,00",
+    date: '13/03/2020',
+    category: {
+      name: "Vendas",
+      icon: "dollar-sign"
+    },
+    type: 'positive'
+  }
+]
 
+export function Dashboard() {
   return (
-    <>
-      <Container>
-        <Header>
-          <UserWrapper>
-            <UserInfo>
-              <Photo source={{ uri: "https://github.com/danubiobwm.png" }} />
-              <User>
-                <UserGreeting>Olá,</UserGreeting>
-                <UserName>Danubio</UserName>
-              </User>
-            </UserInfo>
-            <Icon name="power" />
-          </UserWrapper>
-        </Header>
-        <HighlightCards>
-          <HighlightCard
-            title="Entrada"
-            amount="R$ 1.200,00"
-            lastTransition="Ultima saida dia 13 de Abriil"
-            type="up"
-          />
-          <HighlightCard
-            title="Saida"
-            amount="R$ 200,00"
-            lastTransition="01 a 16 de abril"
-            type="down"
-          />
-          <HighlightCard
-            title="Total"
-            amount="R$ 2000,00"
-            lastTransition="Ultima saida dia 13 de Abriil"
-            type="total"
-          />
-        </HighlightCards>
+    <Container>
+      <Header>
+        <UserWrapper>
+          <UserInfo>
+            <Photo source={{ uri: 'https://avatars.githubusercontent.com/u/55556754?v=4' }} />
 
-        <Transactions>
-          <Title>Listagem</Title>
-          
-          <TransactionsList 
-          data={data}
-          renderItem={({item})=> <TransactionCard data={item} />}
-          showsVerticalScrollIndicator={false}
-          contextContainerStyle={{
-            paddingBottom: getBottomSpace()
-          }}
-          />
-          
-         
-        </Transactions>
-      </Container>
-    </>
-  );
-}
+            <User>
+              <UserGretting>Olá,</UserGretting>
+              <UserName>Débora</UserName>
+            </User>
+          </UserInfo>
+
+          <Icon name="power" />
+        </UserWrapper>
+      </Header>
+
+      <HighlightCards>
+        <HighlightCard 
+          title="Entradas" 
+          amount="R$ 17.400,00" 
+          lastTransaction="Última entrada dia 13 de abril" 
+          type="up"
+        />
+        <HighlightCard 
+          title="Saídas" 
+          amount="R$ 1.259,00" 
+          lastTransaction="Última saída dia 03 de abril" 
+          type="down"
+        />
+        <HighlightCard 
+          title="Total" 
+          amount="R$ 16.141,00" 
+          lastTransaction="01 à 16 de abril" 
+          type="total"
+        />
+      </HighlightCards>
+
+      <Transactions>
+        <Title>Listagem</Title>
+
+        <TransactionList
+          data={data} 
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => <TransactionCard data={item} />}
+        />
+      </Transactions>
+    </Container>
+  )
+};
