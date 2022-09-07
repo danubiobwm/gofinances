@@ -40,19 +40,19 @@ align-items: center;
 `;
 
 export const Icon = styled(Feather)`
-font-size: ${RFValue(20)} px;
+font-size: ${RFValue(20)}px;
 color: ${({ theme }) => theme.colors.text};
 
 `;
 
 export const CategoryName = styled.Text`
-font-size: ${RFValue(14)} px;
+font-size: ${RFValue(14)}px;
 color: ${({ theme }) => theme.colors.text};
 
 margin-left: 17px;
 `;
 
 export const Date = styled.Text`
-font-size: ${RFValue(14)} px;
-color: ${({ theme }) => theme.colors.text};
+font-size: ${RFValue(14)}px;
+color: ${({theme}) => theme.colors.text};
 `;
