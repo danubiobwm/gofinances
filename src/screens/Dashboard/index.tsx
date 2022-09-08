@@ -74,11 +74,11 @@ export function Dashboard() {
       <Header>
         <UserWrapper>
           <UserInfo>
-            <Photo source={{ uri: 'https://avatars.githubusercontent.com/u/55556754?v=4' }} />
+            <Photo source={{ uri: 'https://avatars.githubusercontent.com/u/40647550?v=4' }} />
 
             <User>
               <UserGretting>Olá,</UserGretting>
-              <UserName>Débora</UserName>
+              <UserName>Danubio</UserName>
             </User>
           </UserInfo>
 
