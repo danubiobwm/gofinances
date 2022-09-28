@@ -3,6 +3,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from 'styled-components';
 import { Dashboard } from './src/screens/Dashboard';
 import { Register } from './src/screens/Register';
+import { CategorySelect } from './src/screens/CategorySelect';
 import { useFonts } from 'expo-font';
 import {
   Poppins_400Regular,
