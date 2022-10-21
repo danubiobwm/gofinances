@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as SplashScreen from "expo-splash-screen";
 import { ThemeProvider } from "styled-components";
 import { useFonts } from "expo-font";
@@ -49,10 +50,12 @@ export default function App() {
   }
 
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
     <ThemeProvider theme={theme}>
       <NavigationContainer>
         <AppRoutes />
       </NavigationContainer>
     </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }

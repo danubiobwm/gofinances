@@ -26,10 +26,13 @@ interface FormData {
 }
 
 const schema = Yup.object().shape({
-  name: Yup.string().required('Nome é obrigatório'),
-  amount: Yup.number()
-  .typeError('Informe um valor númerico')
-  .positive('valor tem que ser positivo')
+  name: Yup
+  .string()
+  .required('Nome é obrigatório'),
+  amount: Yup
+  .number()
+  .typeError('Informe um valor numérico')
+  .positive('O valor não pode ser negativo')
   .required('O valor é obrigatório')
 });
 
@@ -39,7 +42,7 @@ export function Register() {
 
   const [category, setCategory] = useState({
     key: "category",
-    name: "category",
+    name: "Categoria",
   });
 
   const { control, handleSubmit, formState:{errors} } = useForm({
@@ -116,7 +119,7 @@ export function Register() {
               onPress={handleOpenSelectCategoryModal}
             />
           </Fields>
-          <Button title="Enviar" onPress={()=>handleSubmit(handleRegister)} />
+          <Button title="Enviar" onPress={handleSubmit(handleRegister)} />
         </Form>
         <Modal visible={CategoryModalOpen}>
           <CategorySelect
