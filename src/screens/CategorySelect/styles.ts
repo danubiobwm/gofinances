@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { TouchableOpacity } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { Feather } from '@expo/vector-icons';
 
@@ -30,7 +30,7 @@ export const Title = styled.Text`
   font-size: ${RFValue(18)}px;
 `;
 
-export const Category = styled.TouchableOpacity<CategoryProps>`
+export const Category = styled(RectButton)<CategoryProps>`
 width: 100%;
 padding:  ${RFValue(15)}px;
 
