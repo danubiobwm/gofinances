@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as SplashScreen from "expo-splash-screen";
 import { ThemeProvider } from "styled-components";
