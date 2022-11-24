@@ -1,11 +1,14 @@
-import styled from 'styled-components/native';
-import { FlatList, FlatListProps } from 'react-native';
-import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
-import { Feather } from '@expo/vector-icons';
-import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import styled from "styled-components/native";
+import { FlatList, FlatListProps } from "react-native";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import { Feather } from "@expo/vector-icons";
+import {
+  getBottomSpace,
+  getStatusBarHeight,
+} from "react-native-iphone-x-helper";
+import { BorderlessButton } from "react-native-gesture-handler";
 
-import { DataListProps } from '.';
+import { DataListProps } from ".";
 
 export const Container = styled.View`
   flex: 1;
@@ -34,7 +37,6 @@ export const UserWrapper = styled.View`
 export const UserInfo = styled.View`
   flex-direction: row;
   align-items: center;
-
 `;
 
 export const Photo = styled.Image`
@@ -59,7 +61,7 @@ export const UserName = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
 `;
 
-export const LogoutButton = styled(BorderlessButton)``
+export const LogoutButton = styled(BorderlessButton)``;
 
 export const Icon = styled(Feather)`
   color: ${({ theme }) => theme.colors.secondary};
@@ -71,17 +73,17 @@ export const HighlightCards = styled.ScrollView.attrs({
   showsHorizontalScrollIndicator: false,
   contentContainerStyle: {
     paddingHorizontal: 24,
-  }
+  },
 })`
   width: 100%;
   position: absolute;
-  margin-top: ${RFPercentage(20)}px;
+  margin-top: ${RFPercentage(24)}px;
 `;
 
 export const Transactions = styled.View`
   flex: 1%;
   padding: 0px 24px;
-  margin-top: ${RFPercentage(12)}px;
+  margin-top: ${RFPercentage(16)}px;
 `;
 
 export const Title = styled.Text`

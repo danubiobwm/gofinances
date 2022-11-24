@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import 'intl';
-import 'intl/locale-data/jsonp/pt-BR';
+import { StatusBar } from "react-native";
+import "intl";
+import "intl/locale-data/jsonp/pt-BR";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as SplashScreen from "expo-splash-screen";
 import { ThemeProvider } from "styled-components";
@@ -53,11 +54,12 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-    <ThemeProvider theme={theme}>
-      <NavigationContainer>
-        <AppRoutes />
-      </NavigationContainer>
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <NavigationContainer>
+          <StatusBar barStyle="light-content" />
+          <AppRoutes />
+        </NavigationContainer>
+      </ThemeProvider>
     </GestureHandlerRootView>
   );
 }
